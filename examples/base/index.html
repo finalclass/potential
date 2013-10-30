@@ -5,16 +5,20 @@
   <title>Potential Base Example</title>
 </head>
 <body>
-  <script type="text/potential">
+   <script type="text/potential">
     <kinetic:layer>
-      <kinetic:rect x="10" y="10" width="100" height="100" fill="green" stroke="black"/>
+      <kinetic:rect x="10" y="10" 
+                    width="100" height="100" 
+                    draggable="true"
+                    fill="#00ff00" stroke="black"/>
     </kinetic:layer>
-  </script>
+  </script> 
 
   <div id="container"></div>
 
   <script src="./bower_components/jquery/jquery.js"></script>
   <script src="./bower_components/kineticjs/kinetic.js"></script>
   <script src="../../potential.js"></script>
+  
 </body>
 </html>

@@ -10,16 +10,26 @@
     }));
   }
 
+  function parseArgument(argString) {
+    try {
+      return eval(argString);
+    } catch (e) {
+      return argString;
+    }
+  }
+
   function getAllAttributes($element) {
     var attrs = {};
 
     $element.each(function() {
       $.each(this.attributes, function() {
         if (this.specified) {
-          attrs[this.name] = this.value;
+          attrs[dashCaseToCamelCase(this.name)] = parseArgument(this.value);
         }
       });
     });
+
+    console.log(attrs);
 
     return attrs;
   }
@@ -31,7 +41,7 @@
 
     var node = new exports[nodeNamespace][componentName](getAllAttributes($node));
 
-    $node.children().each(function () {
+    $node.children().each(function() {
       node.add(parseNode($(this)));
     });
 
